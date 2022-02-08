@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2022-02-08 21:00:00
+  place: Potokar
+
+two:
+  time: 2022-02-10 22:00:00
+  place: Laureles
