@@ -10,6 +10,7 @@
   </ol>
 
   <%= form_with model: @new_player do |form| %>
+    <%= form.hidden_field :match_id, value: @current_match.id %>
     <%= form.text_field :full_name, placeholder: 'Ingresa tu nombre' %>
 
     <%= form.submit 'go' %>
