@@ -1,2 +1,17 @@
-<h1 data-controller="hello">Home#index</h1>
-<p>Piratea y difunde</p>
+<div>
+  <div>
+    <%= I18n.l(@current_match.time, format: '%A, %d de %B %I:%M %p') %> - <%= @current_match.place %>
+  </div>
+
+  <ol>
+    <% @players.each do |player| %>
+      <li><%= player.full_name %></li>
+    <% end  %>
+  </ol>
+
+  <%= form_with model: @new_player do |form| %>
+    <%= form.text_field :full_name, placeholder: 'Ingresa tu nombre' %>
+
+    <%= form.submit 'go' %>
+  <% end %>
+</div>
