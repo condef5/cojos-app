@@ -6,13 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <p style="color: green"><%= notice %></p>
+    <div class="container">
+      <p style="color: green"><%= notice %></p>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
