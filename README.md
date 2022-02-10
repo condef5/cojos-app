@@ -1,24 +1,22 @@
-# README
+# Cojos App 🥅 ⚽️ 🥅
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple app for players who wants to join for play soccer
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+To start this application locally:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Make sure you have installed ruby 3.0.2
+2. Install the dependencies:
+```
+bundle install
+yarn install
+```
+3. Create the database and run the migrations
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+4. Run the server: `./bin/dev`
+5. Visit http://localhost:3000/
