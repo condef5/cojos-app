@@ -1,20 +1,32 @@
-<h1>Grupos</h1>
+<main class="-mt-8">
+  <div class="text-lg font-bold flex justify-center">Sortear Equipos</div>
 
-<%= form_with url: match_shuffles_url(@match), method: :get do |form| %>
-  <%= form.label :max_players, "Max de jugadores" %>
-  <%= form.number_field :max_players, value: @max_players, required: true, min: 4 %>
-  <%= form.submit "Cambiar" %>
-<% end %>
+  <section class="">
+    <div class="my-5">
+      <%= form_with url: match_shuffles_url(@match), method: :get do |form| %>
+        <%= form.label :max_players, "Max. de jugadores", style: "font-size: 14px" %>
+        <%= form.number_field :max_players, value: @max_players, required: true, min: 4, max: 12, style: "width: 5rem"%>
+        <button type="button" class="px-3 py-2 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+          <%= form.submit "Go" %>
+        </button>
+      <% end %>
+    </div>
 
-<div>
-  <% @teams.each_with_index do |team, index| %>
-  <h3>Equipo <%= index + 1 %></h3>
-    <ol>
-      <% team.each do |player| %>
-        <li><%= player.full_name %></li>
+    <div class="mb-5">
+      <% @teams.each_with_index do |team, index| %>
+        <h3 class="my-2 font-semibold underline">Equipo <%= index + 1 %></h3>
+        <ol class="border border-gray-300 rounded-md divide-y divide-gray-300">
+          <% team.each do |player| %>
+            <li class="py-2 flex items-center">
+              <span class="ml-5 text-xs md:text-sm truncate"> <%= player.full_name %> </span>
+            </li>
+          <% end  %>
+        </ol>
       <% end  %>
-    </ol>
-  <% end  %>
-</div>
+    </div>
 
-<%= link_to "Volver", root_path %>
+    <button type="button" class="px-3 py-2 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700">
+      <%= link_to "Volver", root_path %>
+    </button>
+  </section>
+</main>
