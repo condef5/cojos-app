@@ -19,7 +19,7 @@
       <div class="flex">
         <%= form.hidden_field :match_id, value: @current_match.id %>
         <%= form.text_field :full_name, placeholder: 'Ingresa tu nombre' %>
-        <button type="button" class="ml-1 px-3 py-1 border border-transparent text-xl md:text-2xl font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+        <button type="button" class="ml-1 px-3 py-1 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
           <%= form.submit 'Go' %>
         </button>
       </div>
