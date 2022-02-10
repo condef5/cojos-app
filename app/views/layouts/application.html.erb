@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
-  <body>
-    <div class="container">
-      <p style="color: green"><%= notice %></p>
-
-      <%= yield %>
+  
+  <body class="flex">
+    <div class="bg-gray-200 absolute top-0 w-full">
+      <p style="color: green" class="my-6 mx-auto flex justify-center"><%= notice %></p>
     </div>
+    <main class="mx-auto mt-24 px-4 flex">
+      <%= yield %>
+    </main>
   </body>
 </html>
