@@ -7,10 +7,12 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
+  
   <body class="flex">
     <div class="bg-gray-200 absolute top-0 w-full">
       <p style="color: green" class="my-6 mx-auto flex justify-center"><%= notice %></p>
