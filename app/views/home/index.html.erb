@@ -1,8 +1,8 @@
 <div>
   <div>
-    <%= I18n.l(@current_match.time, format: '%A, %d de %B %I:%M %p') %> - <%= @current_match.place %>
-    <br />
-    <br />
+    <h3>
+      <%= l(@current_match.time, format: '%A, %d de %B %I:%M %p', locale: :es) %> - <%= @current_match.place %>
+    </h3>
     <%= link_to 'Sortear grupos', match_shuffles_url(@current_match) %>
   </div>
 
