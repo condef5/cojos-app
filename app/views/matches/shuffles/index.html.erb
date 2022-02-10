@@ -1,0 +1,20 @@
+<h1>Grupos</h1>
+
+<%= form_with url: match_shuffles_url(@match), method: :get do |form| %>
+  <%= form.label :max_players, "Max de jugadores" %>
+  <%= form.number_field :max_players, value: @max_players, required: true, min: 4 %>
+  <%= form.submit "Cambiar" %>
+<% end %>
+
+<div>
+  <% @teams.each_with_index do |team, index| %>
+  <h3>Equipo <%= index + 1 %></h3>
+    <ol>
+      <% team.each do |player| %>
+        <li><%= player.full_name %></li>
+      <% end  %>
+    </ol>
+  <% end  %>
+</div>
+
+<%= link_to "Volver", root_path %>
