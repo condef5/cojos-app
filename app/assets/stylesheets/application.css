@@ -17,3 +17,6 @@
 table form {
   display: inline-block;
 }
+input[value="Go"] {
+  text-transform: uppercase;
+}
