@@ -12,10 +12,22 @@
       <%= link_to "Agregar jugador", edit_match_path(@match), class: 'text-blue-600' %>
     </div>
     <% @match.players.each do |player| %>
-      <div class="flex justify-between flex-row mb-2 group p-3 rounded-md text-sm hover:bg-gray-50">
-        <%= player.full_name %>
+      <div class="sm:flex justify-between flex-row mb-2 group p-3 rounded-md text-sm hover:bg-gray-50">
+        <div class="flex">
+          <div class="w-[150px]"><%= player.full_name %></div>
+          <% if player.pay_at %>
+            <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-100 bg-green-600 rounded-full">
+              Pagó
+            </span>
+          <% end %>
+        </div>
 
-        <%= button_to "Eliminar", player, method: :delete %>
+        <div class="flex mt-4 sm:mt-0">
+          <% unless player.pay_at %>
+            <%= button_to "Pagar", player_pays_url(player), method: :post, class: "mr-4 text-orange-500" %>
+          <% end %>
+          <%= button_to "Eliminar", player, method: :delete %>
+        </div>
       </div>
     <% end %>
   </div>
