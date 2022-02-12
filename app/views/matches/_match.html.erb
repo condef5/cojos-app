@@ -1,4 +1,4 @@
-<div id="<%= dom_id match %>">
+<div id="<%= dom_id match %>" class="mb-6">
   <p>
     <strong>Place:</strong>
     <%= match.place %>
@@ -9,4 +9,6 @@
     <%= match.time %>
   </p>
 
+  <%= link_to "Ver partido", match, class: "text-blue-600 font-semibold hover:text-blue-500" %> |
+  <%= link_to "Editar partido", edit_match_path(match) %>
 </div>
