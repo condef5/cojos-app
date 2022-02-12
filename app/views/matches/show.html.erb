@@ -1,10 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<%= link_to "Volver a los partidos", matches_path %>
+<hr>
 
-<%= render @match %>
-
-<div>
-  <%= link_to "Edit this match", edit_match_path(@match) %> |
-  <%= link_to "Back to matches", matches_path %>
-
-  <%= button_to "Destroy this match", @match, method: :delete %>
+<div class="sm:flex mt-4">
+  <div class="flex justify-between sm:w-56 sm:mr-4 sm:pr-4 sm:border-r sm:border-gray-100">
+    <h2 class="text-2xl sm:text-3xl"><%= @match.place %></h2>
+    <%= link_to "Editar", edit_match_path(@match), class: 'text-blue-600' %>
+  </div>
+  <div class="flex-grow">
+    <h2 class="my-4 text-xl">Juradores</h2>
+    <% @match.players.each do |player| %>
+      <div class="forum_post flex flex-row mb-2 group p-3 rounded-md text-sm hover:bg-gray-50">
+        <%= player.full_name %>
+      </div>
+    <% end %>
+  </div>
 </div>
