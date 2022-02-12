@@ -3,14 +3,19 @@
 
 <div class="sm:flex mt-4">
   <div class="flex justify-between sm:w-56 sm:mr-4 sm:pr-4 sm:border-r sm:border-gray-100">
-    <h2 class="text-2xl sm:text-3xl"><%= @match.place %></h2>
+    <h2 class="text-xl sm:text-3xl"><%= @match.place %></h2>
     <%= link_to "Editar", edit_match_path(@match), class: 'text-blue-600' %>
   </div>
-  <div class="flex-grow">
-    <h2 class="my-4 text-xl">Juradores</h2>
+  <div class="flex-grow mt-8 sm:mt-0">
+    <div class="flex justify-between items-center">
+      <h2 class="my-4 text-lg">Juradores</h2>
+      <%= link_to "Agregar jugador", edit_match_path(@match), class: 'text-blue-600' %>
+    </div>
     <% @match.players.each do |player| %>
-      <div class="forum_post flex flex-row mb-2 group p-3 rounded-md text-sm hover:bg-gray-50">
+      <div class="flex justify-between flex-row mb-2 group p-3 rounded-md text-sm hover:bg-gray-50">
         <%= player.full_name %>
+
+        <%= button_to "Eliminar", player, method: :delete %>
       </div>
     <% end %>
   </div>
