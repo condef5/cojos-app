@@ -1,27 +1,31 @@
-<div class="m-auto md:max-w-[480px]" />
-  <h3 class="text-sm lg:text-lg flex justify-between capitalize mb-6">
-    <div><%= l(@current_match.time, format: '%A %d - %I:%M %p', locale: :es) %> </div>
-    <div>
-      <%= @current_match.place %>
-    </div>
-  </h3>
-  <%= link_to 'Sortear equipos', match_shuffles_url(@current_match), class: "block bg-green-100 hover:bg-green-50 text-green-700 px-3 py-2 rounded-md text-sm font-medium text-center" %>
+<% if @current_match %>
+  <div class="m-auto md:max-w-[480px]" />
+    <h3 class="text-sm lg:text-lg flex justify-between capitalize mb-6">
+      <div><%= l(@current_match.time, format: '%A %d - %I:%M %p', locale: :es) %> </div>
+      <div>
+        <%= @current_match.place %>
+      </div>
+    </h3>
+    <%= link_to 'Sortear equipos', match_shuffles_url(@current_match), class: "block bg-green-100 hover:bg-green-50 text-green-700 px-3 py-2 rounded-md text-sm font-medium text-center" %>
 
-  <ol class="border rounded-md divide-y  overflow-auto h-[400px] my-6">
-    <% @players.each do |player| %>
-      <li class="py-2 flex items-center">
-        <span class="ml-5 text-xs md:text-sm truncate"> <%= player.full_name %> </span>
-      </li>
-    <% end  %>
-  </ol>
+    <ol class="border rounded-md divide-y  overflow-auto h-[400px] my-6">
+      <% @players.each do |player| %>
+        <li class="py-2 flex items-center">
+          <span class="ml-5 text-xs md:text-sm truncate"> <%= player.full_name %> </span>
+        </li>
+      <% end  %>
+    </ol>
 
-  <%= form_with model: @new_player do |form| %>
-    <div class="flex">
-      <%= form.hidden_field :match_id, value: @current_match.id %>
-      <%= form.text_field :full_name, placeholder: 'Ingresa tu nombre', class: 'appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5', required: true %>
-      <button type="button" class="md:min-w-[60px] flex items-center justify-center py-2 px-3 ml-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition duration-150 ease-in-out">
-        <%= form.submit 'Go' %>
-      </button>
-    </div>
-  <% end %>
-</div>
+    <%= form_with model: @new_player do |form| %>
+      <div class="flex">
+        <%= form.hidden_field :match_id, value: @current_match.id %>
+        <%= form.text_field :full_name, placeholder: 'Ingresa tu nombre', class: 'appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5', required: true %>
+        <button type="button" class="md:min-w-[60px] flex items-center justify-center py-2 px-3 ml-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition duration-150 ease-in-out">
+          <%= form.submit 'Go' %>
+        </button>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div>No hay partidos que mostrar :(</div>
+<% end %>
