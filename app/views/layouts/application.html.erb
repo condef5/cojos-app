@@ -9,12 +9,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-  
-  <body class="flex">
-    <div class="bg-gray-200 absolute top-0 w-full">
-      <p style="color: green" class="my-6 mx-auto flex justify-center"><%= notice %></p>
-    </div>
-    <main class="mx-auto mt-24 mb-12 px-4 flex">
+  <body class="antialiased font-sans">
+    <% if notice.present? %>
+      <%= render partial: "shared/alert" %>
+    <% end %>
+    <main class="container mx-auto p-8">
       <%= yield %>
     </main>
   </body>
